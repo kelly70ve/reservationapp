@@ -24,7 +24,8 @@
             <br>
 
             <div class="text-center">
-                <a href="/make-reservation"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make
+                <a href="/make-reservation"><button class="btn btn-lg btn-danger"><span
+                            class="fa fa-credit-card"></span> Make
                         Reservation</button></a>
                 <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
             </div>
@@ -40,38 +41,7 @@
                     </div>
                     <div class="card-body">
                         <ul id="tableList" class="list-group">
-                            <li class="list-group-item mt-4">
-                                <h2>Table #1</h2>
-                                <hr>
-                                <h2>ID: CodeBoy</h2>
-                                <h2>Name: Abdul Sabree</h2>
-                                <h2>Email: ahs@yahoo.com</h2>
-                                <h2>Phone: 678 622 4323</h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #2</h2>
-                                <hr>
-                                <h2>ID: CEnright</h2>
-                                <h2>Name: Chris Enright</h2>
-                                <h2>Email: enrightcw@gmail.com</h2>
-                                <h2>Phone: 555-5555</h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #3</h2>
-                                <hr>
-                                <h2>ID: </h2>
-                                <h2>Name: Niv</h2>
-                                <h2>Email: zyz@gmail.com</h2>
-                                <h2>Phone: 470-709-1747</h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #4</h2>
-                                <hr>
-                                <h2>ID: adsfawef</h2>
-                                <h2>Name: adsfa</h2>
-                                <h2>Email: asfasdf</h2>
-                                <h2>Phone: asdf</h2>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -106,8 +76,38 @@
 
     <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
     <script type="text/javascript">
-        $.get()
-        
+        $.get('/api/reservations', data => {
+            if (data) {
+                data.forEach((reservation, index) => {
+                    let html = `<li class="list-group-item mt-4">
+                                <h2>Table #${index + 1}</h2>
+                                <hr>
+                                <h2>ID: ${reservation.customerID}</h2>
+                                <h2>Name: ${reservation.customerName}</h2>
+                                <h2>Email: ${reservation.customerEmail}</h2>
+                                <h2>Phone: ${reservation.phoneNumber}</h2>
+                            </li>`;
+                    $('#tableList').append(html);
+                })
+        }});
+
+
+            $.get('/api/waitlist', data => {
+                if (data) {
+                    data.forEach((reservation, index) => {
+                        let html = `<li class="list-group-item mt-4">
+                                <h2>Table #${index + 1}</h2>
+                                <hr>
+                                <h2>ID: ${reservation.customerID}</h2>
+                                <h2>Name: ${reservation.customerName}</h2>
+                                <h2>Email: ${reservation.customerEmail}</h2>
+                                <h2>Phone: ${reservation.phoneNumber}</h2>
+                            </li>`;
+                        $('#waitList').append(html);
+                    })
+                }
+            });
+
 
     </script>
 
