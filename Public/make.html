@@ -102,13 +102,20 @@
           customerEmail: $("#reserve_email").val().trim(),
           customerID: $("#reserve_uniqueID").val().trim()
         }
-      });
+        
+        $("#reserve_name").val("");
+        $("#reserve_phone").val("");
+        $("#reserve_email").val("");
+        $("#reserve_uniqueID").val("");
 
-      $.post("/make-reservation", newResv)
+        $.post("/make-reservation", newResv)
         .then(data => {
           console.log(data)
           alert("Your reservation has been made")
         })
+
+      });
+
     </script>
   </body>
 </html>
