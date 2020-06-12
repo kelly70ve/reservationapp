@@ -1,15 +1,15 @@
 var waiting = [ 
     {
-    "customerName": "Abdul Sabree",
-    "phoneNumber": "678 622 4323",
-    "customerEmail": "ahs@yahoo.com",
+    "customerName": "Waitlist Sabree",
+    "phoneNumber": "234 622 4323",
+    "customerEmail": "wait hs@yahoo.com",
     "customerID": "CodeBoy"
     },
     {
-    "customerName": "Chris Enright",
-    "phoneNumber": "555-5555",
-    "customerEmail": "enrightcw@gmail.com",
-    "customerID": "CEnright"
+    "customerName": "WAITING Enright",
+    "phoneNumber": "11-5555",
+    "customerEmail": "waiting nrightcw@gmail.com",
+    "customerID": "still waiting right"
     } 
 ]; 
 
